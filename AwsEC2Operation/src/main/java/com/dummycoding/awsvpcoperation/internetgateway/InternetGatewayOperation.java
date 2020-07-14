@@ -43,19 +43,19 @@ public class InternetGatewayOperation {
 //        String internetGatewayId = internetGateway.getInternetGatewayId();
 //        System.out.println("internetGatewayId = " + internetGatewayId);
         //getting internetGateway
-//        DescribeInternetGatewaysResult internetGateWay = getInternetGateWay(eC2Client);
-//        List<InternetGateway> internetGateways = internetGateWay.getInternetGateways();
-//        for (InternetGateway internetGateway : internetGateways) {
-//            String internetGatewayId = internetGateway.getInternetGatewayId();
-//            System.out.println("internetGatewayId = " + internetGatewayId);
-//            List<Tag> tags = internetGateway.getTags();
-//            for (Tag tag : tags) {
-//                String key = tag.getKey();
-//                System.out.println("key = " + key);
-//                String value = tag.getValue();
-//                System.out.println("value = " + value);
-//            }
-//        }
+        DescribeInternetGatewaysResult internetGateWay = getInternetGateWay(eC2Client);
+        List<InternetGateway> internetGateways = internetGateWay.getInternetGateways();
+        for (InternetGateway internetGateway : internetGateways) {
+            String internetGatewayId = internetGateway.getInternetGatewayId();
+            System.out.println("internetGatewayId = " + internetGatewayId);
+            List<Tag> tags = internetGateway.getTags();
+            for (Tag tag : tags) {
+                String key = tag.getKey();
+                System.out.println("key = " + key);
+                String value = tag.getValue();
+                System.out.println("value = " + value);
+            }
+        }
         //attach InterngetGateway
         AttachInternetGatewayResult attachInternetGateWay = attachInternetGateWay(eC2Client);
         ResponseMetadata sdkResponseMetadata = attachInternetGateWay.getSdkResponseMetadata();
@@ -87,20 +87,20 @@ public class InternetGatewayOperation {
     public static DescribeInternetGatewaysResult getInternetGateWay(AmazonEC2 eC2Client) throws Exception {
         DescribeInternetGatewaysRequest describeInternetGatewaysRequest = new DescribeInternetGatewaysRequest();
         describeInternetGatewaysRequest.withInternetGatewayIds("igw-0338a2305ef0ba76b");
-//        Filter filter = new Filter();
-//        Collection<String> filterValues = new ArrayList<>();
-//        filter.withName("attachment.state");
-//        filterValues.add("available");
-//        filter.withName("attachment.vpc-id");
-//        filterValues.add("vpc-a51822df");
-//        filter.withName("internet-gateway-id");
-//        filterValues.add("igw-0338a2305ef0ba76b");
-//        filter.withName("owner-id");
-//        filterValues.add("781405961925");
-//        filter.withName("tag:Name");
-//        filterValues.add("ironman-gatway");
-//        filter.withValues(filterValues);
-//        describeInternetGatewaysRequest.withFilters(filter);
+        Filter filter = new Filter();
+        Collection<String> filterValues = new ArrayList<>();
+        filter.withName("attachment.state");
+        filterValues.add("available");
+        filter.withName("attachment.vpc-id");
+        filterValues.add("vpc-a51822df");
+        filter.withName("internet-gateway-id");
+        filterValues.add("igw-0338a2305ef0ba76b");
+        filter.withName("owner-id");
+        filterValues.add("781405961925");
+        filter.withName("tag:Name");
+        filterValues.add("ironman-gatway");
+        filter.withValues(filterValues);
+        describeInternetGatewaysRequest.withFilters(filter);
         return eC2Client.describeInternetGateways(describeInternetGatewaysRequest);
     }
 

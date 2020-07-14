@@ -41,6 +41,7 @@ public class EC2KeyPair {
             String keyPairId = getKeypair.getKeyPairId();
             List<Tag> tags = getKeypair.getTags();
         }
+        DeleteKeyPairResult deleteEc2KeyPair = deleteEc2KeyPair(eC2Client);
     }
 
     public static CreateKeyPairResult createEc2KeyPair(AmazonEC2 eC2Client) {

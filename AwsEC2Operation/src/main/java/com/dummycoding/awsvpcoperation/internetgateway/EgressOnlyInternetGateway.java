@@ -13,6 +13,7 @@ import com.amazonaws.services.ec2.model.DeleteEgressOnlyInternetGatewayResult;
 import com.amazonaws.services.ec2.model.DescribeEgressOnlyInternetGatewaysRequest;
 import com.amazonaws.services.ec2.model.DescribeEgressOnlyInternetGatewaysResult;
 import com.amazonaws.services.ec2.model.Filter;
+import com.amazonaws.services.ec2.model.InternetGatewayAttachment;
 import com.dummycoding.awsvpcoperation.ec2clients.DummyEc2Client;
 import java.util.List;
 
@@ -36,6 +37,11 @@ public class EgressOnlyInternetGateway {
         List<com.amazonaws.services.ec2.model.EgressOnlyInternetGateway> egressOnlyInternetGateways = egressOnlyInternetGateway1.getEgressOnlyInternetGateways();
         for (com.amazonaws.services.ec2.model.EgressOnlyInternetGateway egressOnlyInternetGateway2 : egressOnlyInternetGateways) {
             String egressOnlyInternetGatewayId1 = egressOnlyInternetGateway2.getEgressOnlyInternetGatewayId();
+            List<InternetGatewayAttachment> attachments = egressOnlyInternetGateway2.getAttachments();
+            for (InternetGatewayAttachment attachment : attachments) {
+                String state = attachment.getState();
+                String vpcId = attachment.getVpcId();
+            }
         }
         
         //delete egress only internetgateway
