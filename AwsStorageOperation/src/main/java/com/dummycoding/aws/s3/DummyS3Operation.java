@@ -12,8 +12,13 @@ import com.amazonaws.services.s3.model.Bucket;
 import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.CreateBucketRequest;
 import com.amazonaws.services.s3.model.DeleteBucketRequest;
+import com.amazonaws.services.s3.model.Grantee;
+import com.amazonaws.services.s3.model.GroupGrantee;
 import com.amazonaws.services.s3.model.ListBucketsRequest;
 import com.amazonaws.services.s3.model.Owner;
+import com.amazonaws.services.s3.model.Permission;
+import com.amazonaws.services.s3.model.PutObjectRequest;
+import com.amazonaws.services.s3.model.PutObjectResult;
 import com.dummycoding.ec2clients.DummyAwsClient;
 import java.util.Date;
 import java.util.List;
@@ -41,10 +46,8 @@ public class DummyS3Operation {
 
         //listofBuckets
 //        List<Bucket> listBucket = listBucket(s3Client);
-
         //Delete Buckets
 //        deleteBucket(s3Client);
-
     }
 
     public static Bucket createBucket(AmazonS3 s3Client) throws Exception {
@@ -54,8 +57,10 @@ public class DummyS3Operation {
 //        owner.setId("ownderId");
 //        owner.setDisplayName("ownderDisplayname");
 //        accessControlList.setOwner(owner);
+//        accessControlList.grantPermission(GroupGrantee.LogDelivery, Permission.WriteAcp);
+//        accessControlList.revokeAllPermissions(GroupGrantee.AllUsers);
 //        bucketRequest.withAccessControlList(accessControlList);
-//        bucketRequest.withCannedAcl(CannedAccessControlList.BucketOwnerFullControl);
+        bucketRequest.withCannedAcl(CannedAccessControlList.PublicReadWrite);
         Bucket createBucket = s3Client.createBucket(bucketRequest);
         return createBucket;
     }

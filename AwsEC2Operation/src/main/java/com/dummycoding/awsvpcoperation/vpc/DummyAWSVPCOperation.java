@@ -36,34 +36,34 @@ public class DummyAWSVPCOperation {
 
         //create VPC
         CreateVpcResult createVpc = createVpc(eC2Client);
-        //get VPC
-        DescribeVpcsResult vpc = getVPC(eC2Client);
-        List<Vpc> vpcs = vpc.getVpcs();
-        for (Vpc getVPC : vpcs) {
-            String cidrBlock = getVPC.getCidrBlock();
-            System.out.println("cidrBlock = " + cidrBlock);
-            List<VpcCidrBlockAssociation> cidrBlockAssociationSet = getVPC.getCidrBlockAssociationSet();
-            String dhcpOptionsId = getVPC.getDhcpOptionsId();
-            System.out.println("dhcpOptionsId = " + dhcpOptionsId);
-            String instanceTenancy = getVPC.getInstanceTenancy();
-            System.out.println("instanceTenancy = " + instanceTenancy);
-            List<VpcIpv6CidrBlockAssociation> ipv6CidrBlockAssociationSet = getVPC.getIpv6CidrBlockAssociationSet();
-            Boolean isDefault = getVPC.getIsDefault();
-            System.out.println("isDefault = " + isDefault);
-            String ownerId = getVPC.getOwnerId();
-            System.out.println("ownerId = " + ownerId);
-            String state = getVPC.getState();
-            System.out.println("state = " + state);
-            List<Tag> tags = getVPC.getTags();
-            System.out.println("tags = " + tags);
-            String vpcId = getVPC.getVpcId();
-            System.out.println("vpcId = " + vpcId);
-        }
-        //Delete VPC
-        DeleteVpcResult deleteVPC = deleteVPC(eC2Client);
-        
-        //create Default VPC
-        CreateDefaultVpcResult createDefaultVPC = createDefaultVPC(eC2Client);
+//        //get VPC
+//        DescribeVpcsResult vpc = getVPC(eC2Client);
+//        List<Vpc> vpcs = vpc.getVpcs();
+//        for (Vpc getVPC : vpcs) {
+//            String cidrBlock = getVPC.getCidrBlock();
+//            System.out.println("cidrBlock = " + cidrBlock);
+//            List<VpcCidrBlockAssociation> cidrBlockAssociationSet = getVPC.getCidrBlockAssociationSet();
+//            String dhcpOptionsId = getVPC.getDhcpOptionsId();
+//            System.out.println("dhcpOptionsId = " + dhcpOptionsId);
+//            String instanceTenancy = getVPC.getInstanceTenancy();
+//            System.out.println("instanceTenancy = " + instanceTenancy);
+//            List<VpcIpv6CidrBlockAssociation> ipv6CidrBlockAssociationSet = getVPC.getIpv6CidrBlockAssociationSet();
+//            Boolean isDefault = getVPC.getIsDefault();
+//            System.out.println("isDefault = " + isDefault);
+//            String ownerId = getVPC.getOwnerId();
+//            System.out.println("ownerId = " + ownerId);
+//            String state = getVPC.getState();
+//            System.out.println("state = " + state);
+//            List<Tag> tags = getVPC.getTags();
+//            System.out.println("tags = " + tags);
+//            String vpcId = getVPC.getVpcId();
+//            System.out.println("vpcId = " + vpcId);
+//        }
+//        //Delete VPC
+//        DeleteVpcResult deleteVPC = deleteVPC(eC2Client);
+//        
+//        //create Default VPC
+//        CreateDefaultVpcResult createDefaultVPC = createDefaultVPC(eC2Client);
 
     }
 
